@@ -1,14 +1,16 @@
 {
-  "name": "root",
+  "name": "bbwss",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://ezequielramis.github.io/bbwss",
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
+    "gh-pages": "^2.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^4.6.0",
@@ -21,11 +23,13 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
     "dev": "webpack-dev-server",
     "prod": "npm run clean && webpack -p",
-    "clean": "rimraf ./dist/*"
-  }
+    "clean": "rimraf ./dist/*",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {}
 }
