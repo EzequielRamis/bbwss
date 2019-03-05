@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title BBWSS
+    link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet") 
+  body
+    #main
+      h3 Window
+      .wrapper.window
+        .input
+          label(for="width") Width
+          input#width(type="number" min="100" value="500")
+          label#widthValue(for="width")
+        .input
+          label(for="height") Height
+          input#height(type="number" min="100" value="400")
+          label#heightValue(for="height")
+        .input
+          label(for="quantity") Quantity
+          input#quantity(type="number" min="1" value="3")
+          label#quantityValue(for="quantity")
+        .input
+          label(for="tick") Millisecond/Tick
+          input#tick(type="number" value="1" min="1")
+        .input
+          label(for="velocity") Pixel/Tick
+          input#velocity(type="number" value="2" min="1")
+      h3 Content
+      .wrapper.content
+        .wrapper.radios
+          .input
+            input#image(type="radio", name="format" value="image" checked)
+            label(for="image")
+              .radio-button
+              span Image/Gif
+          .input
+            input#youtube(type="radio", name="format" value="youtube")
+            label(for="youtube")
+              .radio-button
+              span YouTube video
+        .input
+          label(for="url") URL
+          input#url(type="url" name="url" value="")
+      button#submit Play
+    h4#name Bouncing Browser Window Screen Saver
