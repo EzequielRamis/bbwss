@@ -10,7 +10,7 @@ $blue-op: #2c8fff55;
 html {
   background-color: $white;
   font-size: 24px;
-  font-family: "Roboto Medium";
+  font-family: "Roboto";
   //font-weight: bold;
 }
 
@@ -34,10 +34,11 @@ body {
 h3 {
   color: $black;
   font-size: 34px;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 label {
+  font-weight: bolder;
   color: $lightblack;
   font-size: 18px;
 }
@@ -50,7 +51,7 @@ label {
 }
 
 input {
-  font-weight: bold;
+  font-weight: bolder;
   outline: none;
   color: $lightblack;
   background-color: $white;
@@ -142,6 +143,7 @@ input {
 }
 
 #submit {
+  font-weight: bolder;
   color: $white;
   padding: 0.5rem;
   border-radius: 100px;
@@ -184,7 +186,7 @@ input[type="number"] {
   left: 10px;
 }
 
-#mobilecheck{
+#mobilecheck {
   position: absolute;
   width: 100vw;
   height: 100vh;
