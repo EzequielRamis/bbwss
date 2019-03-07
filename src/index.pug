@@ -35,17 +35,17 @@ html(lang="en")
             input#image(type="radio", name="format" value="image" checked)
             label(for="image")
               .radio-button
-              span Image/Gif
+              span Online Image
+          .input
+            input#file(type="radio", name="format", value="file")
+            label(for="file")
+              .radio-button
+              span Local Image
           .input
             input#youtube(type="radio", name="format" value="youtube")
             label(for="youtube")
               .radio-button
               span YouTube video
-          .input
-            input#file(type="radio", name="format", value="file")
-            label(for="file")
-              .radio-button
-              span File
         .input#input
           label(for="url") Image URL
           input#url(type="url" name="url" value="")

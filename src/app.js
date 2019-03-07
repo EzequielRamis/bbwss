@@ -75,12 +75,12 @@ function loadInputForFormat(format) {
   switch (format) {
     case "image":
       element.type = "url";
-      label.textContent = "Image URL";
+      label.textContent = "Image Link";
       break;
 
     case "youtube":
       element.type = "url";
-      label.textContent = "Youtube URL";
+      label.textContent = "Youtube Link";
       break;
 
     case "file":
