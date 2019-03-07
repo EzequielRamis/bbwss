@@ -41,8 +41,13 @@ html(lang="en")
             label(for="youtube")
               .radio-button
               span YouTube video
-        .input
-          label(for="url") URL
+          .input
+            input#file(type="radio", name="format", value="file")
+            label(for="file")
+              .radio-button
+              span File
+        .input#input
+          label(for="url") Image URL
           input#url(type="url" name="url" value="")
       button#submit Play
     h4#name Bouncing Browser Window Screen Saver

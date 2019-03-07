@@ -25,6 +25,10 @@ function start(width, height, velocity, tick, quantity, format, url) {
       array.push[
         i
       ].document.body.innerHTML = `<img src=${url} width="100%" height="100%">`;
+    else if (format === "file")
+      array.push[i].document.body.innerHTML = `<img src=${URL.createObjectURL(
+        url
+      )} width="100%" height="100%">`;
     update(array.push[i], velocity, tick, margin);
   }
 }
@@ -64,6 +68,39 @@ document.getElementById("quantity").oninput = () =>
 function showValue(v, id) {
   document.getElementById(id).innerHTML = v;
 }*/
+const input = document.getElementById("input");
+const element = input.querySelector("input");
+const label = input.querySelector("label");
+
+function loadInputForFormat(format) {
+  switch (format) {
+    case "image":
+      element.type = "url";
+      label.textContent = "Image URL";
+      break;
+
+    case "youtube":
+      element.type = "url";
+      label.textContent = "Youtube URL";
+      break;
+
+    case "file":
+      element.type = "file";
+      element.accept = "image/*";
+      label.textContent = "File";
+      break;
+  }
+}
+
+const radios = document.getElementsByName("format");
+radios.forEach(e =>
+  e.addEventListener("change", e => loadInputForFormat(e.target.value))
+);
+for (const radio of radios)
+  if (radio.checked) {
+    loadInputForFormat(radio.value);
+    break;
+  }
 
 document.getElementById("submit").onclick = () => {
   let w = Number(document.getElementById("width").value);
@@ -71,14 +108,16 @@ document.getElementById("submit").onclick = () => {
   let v = Number(document.getElementById("velocity").value);
   let t = Number(document.getElementById("tick").value);
   let q = Number(document.getElementById("quantity").value);
-  let radios = document.getElementsByName("format");
   for (let i = 0; i < radios.length; i++) {
     if (radios[i].checked) {
       var f = radios[i].value;
       break;
     }
   }
-  let u = document.getElementById("url").value;
+  let u =
+    f === "file"
+      ? document.getElementById("url").files[0]
+      : document.getElementById("url").value;
   start(w, h, v, t, q, f, u);
 };
 
