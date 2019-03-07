@@ -7,7 +7,6 @@ var strWindowFeatures;
 window.open("", "", strWindowFeatures);*/
 
 function start(width, height, velocity, tick, quantity, format, url) {
-  let margin = 0;
   let array = [];
   if (format === "youtube") url = url.slice(url.indexOf("?v=") + 3);
   for (let i = 0; i < quantity; i++) {
@@ -29,11 +28,11 @@ function start(width, height, velocity, tick, quantity, format, url) {
       array.push[i].document.body.innerHTML = `<img src=${URL.createObjectURL(
         url
       )} width="100%" height="100%">`;
-    update(array.push[i], velocity, tick, margin);
+    update(array.push[i], velocity, tick);
   }
 }
 
-function update(bar, v, t, margin) {
+function update(bar, v, t) {
   let vx = v * (Math.random() > 0.5 ? 1 : -1);
   let vy = v * (Math.random() > 0.5 ? 1 : -1);
   bar.setInterval(() => {
@@ -42,10 +41,10 @@ function update(bar, v, t, margin) {
     const width = bar.outerWidth;
     const height = bar.outerHeight;
 
-    if (x <= margin) vx = Math.abs(vx);
-    if (x + width >= screen.width - margin) vx = -1 * Math.abs(vx);
-    if (y <= margin) vy = Math.abs(vy);
-    if (y + height >= screen.height - margin - 50) vy = -1 * Math.abs(vy);
+    if (x <= screen.availLeft) vx = Math.abs(vx);
+    if (x + width + 1 >= screen.availWidth) vx = -1 * Math.abs(vx);
+    if (y <= screen.availTop) vy = Math.abs(vy);
+    if (y + height + 1 >= screen.availHeight) vy = -1 * Math.abs(vy);
     bar.moveBy(vx, vy);
   }, t);
 }
